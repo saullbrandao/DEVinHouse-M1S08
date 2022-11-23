@@ -13,6 +13,9 @@
         <small>{{ notification.date | date }}</small>
       </div>
       <p class="mb-1">{{ notification.subtitle }}</p>
+      <button (click)="setReadStatus(notification.id)" class="btn btn-primary">
+        Marcar como lido
+      </button>
     </a>
   </div>
 
