@@ -4,36 +4,15 @@
   <div class="list-group">
     <a
       href="#"
-      class="list-group-item list-group-item-action active"
-      aria-current="true"
-    >
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">{{ notifications[0].title }}</h5>
-        <small>{{ notifications[0].date | date }}</small>
-      </div>
-      <p class="mb-1">{{ notifications[0].subtitle }}</p>
-    </a>
-    <a
-      href="#"
       class="list-group-item list-group-item-action"
       aria-current="true"
+      *ngFor="let notification of notifications"
     >
       <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">{{ notifications[1].title }}</h5>
-        <small>{{ notifications[1].date | date }}</small>
+        <h5 class="mb-1">{{ notification.title }}</h5>
+        <small>{{ notification.date | date }}</small>
       </div>
-      <p class="mb-1">{{ notifications[1].subtitle }}</p>
-    </a>
-    <a
-      href="#"
-      class="list-group-item list-group-item-action"
-      aria-current="true"
-    >
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">{{ notifications[2].title }}</h5>
-        <small>{{ notifications[2].date | date }}</small>
-      </div>
-      <p class="mb-1">{{ notifications[2].subtitle }}</p>
+      <p class="mb-1">{{ notification.subtitle }}</p>
     </a>
   </div>
 
