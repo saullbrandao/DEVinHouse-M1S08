@@ -8,24 +8,32 @@
       aria-current="true"
     >
       <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">Notificação 1</h5>
-        <small>3 dias atrás</small>
+        <h5 class="mb-1">{{ notifications[0].title }}</h5>
+        <small>{{ notifications[0].date | date }}</small>
       </div>
-      <p class="mb-1">Lorem ipsum dolor sit amet.</p>
+      <p class="mb-1">{{ notifications[0].subtitle }}</p>
     </a>
-    <a href="#" class="list-group-item list-group-item-action">
+    <a
+      href="#"
+      class="list-group-item list-group-item-action"
+      aria-current="true"
+    >
       <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">Notificação 2</h5>
-        <small class="text-muted">3 dias atrás</small>
+        <h5 class="mb-1">{{ notifications[1].title }}</h5>
+        <small>{{ notifications[1].date | date }}</small>
       </div>
-      <p class="mb-1">Lorem ipsum dolor sit amet.</p>
+      <p class="mb-1">{{ notifications[1].subtitle }}</p>
     </a>
-    <a href="#" class="list-group-item list-group-item-action">
+    <a
+      href="#"
+      class="list-group-item list-group-item-action"
+      aria-current="true"
+    >
       <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">Notificação 3</h5>
-        <small class="text-muted">3 dias atrás</small>
+        <h5 class="mb-1">{{ notifications[2].title }}</h5>
+        <small>{{ notifications[2].date | date }}</small>
       </div>
-      <p class="mb-1">Lorem ipsum dolor sit amet.</p>
+      <p class="mb-1">{{ notifications[2].subtitle }}</p>
     </a>
   </div>
 
