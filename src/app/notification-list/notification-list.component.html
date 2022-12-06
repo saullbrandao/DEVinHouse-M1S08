@@ -1,24 +1,18 @@
-<ntap-header></ntap-header>
-
-<div class="container">
-  <div class="list-group">
-    <a
-      href="#"
-      class="list-group-item list-group-item-action"
-      [ngClass]="{ 'read-notification': notification.isRead }"
-      aria-current="true"
-      *ngFor="let notification of notifications"
-    >
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">{{ notification.title }}</h5>
-        <small>{{ notification.date | date }}</small>
-      </div>
-      <p class="mb-1">{{ notification.subtitle }}</p>
-      <button (click)="setReadStatus(notification.id)" class="btn btn-primary">
-        Marcar como lido
-      </button>
-    </a>
-  </div>
-
-  <ntap-footer></ntap-footer>
+<div class="list-group">
+  <a
+    href="#"
+    class="list-group-item list-group-item-action"
+    [ngClass]="{ 'read-notification': notification.isRead }"
+    aria-current="true"
+    *ngFor="let notification of notifications"
+  >
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">{{ notification.title }}</h5>
+      <small>{{ notification.date | date }}</small>
+    </div>
+    <p class="mb-1">{{ notification.subtitle }}</p>
+    <button (click)="setReadStatus(notification.id)" class="btn btn-primary">
+      Marcar como lido
+    </button>
+  </a>
 </div>
