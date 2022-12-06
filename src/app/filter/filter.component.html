@@ -2,10 +2,10 @@
   <button
     type="button"
     class="list-group-item"
-    *ngFor="let buttonText of buttonTextList"
-    [ngClass]="{ active: activeButton === buttonText }"
-    (click)="handleClick(buttonText)"
+    *ngFor="let filter of filters"
+    [ngClass]="{ active: activeButton === filter }"
+    (click)="handleClick(filter)"
   >
-    {{ buttonText }}
+    {{ getButtonText(filter) }}
   </button>
 </div>

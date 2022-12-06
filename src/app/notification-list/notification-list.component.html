@@ -1,12 +1,14 @@
-<ntap-filter (filterEvent)="setFilter($event)"></ntap-filter>
+<ntap-filter
+  [activeButton]="filter"
+  (filterEvent)="setFilter($event)"
+></ntap-filter>
 
 <div class="list-group">
   <a
-    href="#"
     class="list-group-item list-group-item-action"
     [ngClass]="{ 'read-notification': notification.isRead }"
     aria-current="true"
-    *ngFor="let notification of notifications"
+    *ngFor="let notification of getFilteredNotifications(filter)"
   >
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">{{ notification.title }}</h5>

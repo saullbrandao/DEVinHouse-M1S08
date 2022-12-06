@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ButtonText, NotificationFilter } from './filter';
 
 @Component({
   selector: 'ntap-filter',
@@ -6,13 +7,16 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./filter.component.scss'],
 })
 export class FilterComponent {
-  buttonTextList = ['Todos', 'Não lidos', 'Lidos'];
-  activeButton = 'Lidos';
+  filters: NotificationFilter[] = ['todos', 'nao-lidos', 'lidos'];
+  @Input() activeButton: NotificationFilter = 'todos';
 
-  @Output() filterEvent = new EventEmitter<string>();
+  @Output() filterEvent = new EventEmitter<NotificationFilter>();
 
-  handleClick(buttonText: string) {
-    this.activeButton = buttonText;
+  getButtonText(filter: NotificationFilter) {
+    return ButtonText[filter];
+  }
+
+  handleClick(buttonText: NotificationFilter) {
     this.filterEvent.emit(buttonText);
   }
 }

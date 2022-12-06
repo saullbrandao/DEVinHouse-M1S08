@@ -1,11 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { NotificationFilter } from '../filter/filter';
 
 @Component({
   selector: 'ntap-notification-list',
   templateUrl: './notification-list.component.html',
   styleUrls: ['./notification-list.component.scss'],
 })
-export class NotificationListComponent {
+export class NotificationListComponent implements OnInit {
+  filter: NotificationFilter = 'todos';
   notifications = [
     {
       id: 1,
@@ -30,6 +33,8 @@ export class NotificationListComponent {
     },
   ];
 
+  constructor(private router: Router, private route: ActivatedRoute) {}
+
   setReadStatus(id: number) {
     const changedNotifications = this.notifications.map((notification) => {
       if (notification.id === id) {
@@ -45,7 +50,28 @@ export class NotificationListComponent {
     this.notifications = changedNotifications;
   }
 
-  setFilter(event: string) {
-    console.log(event);
+  setFilter(filter: NotificationFilter) {
+    this.router.navigate([`/home/${filter}`]);
+  }
+
+  getFilteredNotifications(filter: NotificationFilter): any {
+    switch (filter) {
+      case 'lidos':
+        return this.notifications.filter(
+          (notification) => notification.isRead === true
+        );
+      case 'nao-lidos':
+        return this.notifications.filter(
+          (notification) => notification.isRead === false
+        );
+      default:
+        return this.notifications;
+    }
+  }
+
+  ngOnInit(): void {
+    this.route.params.subscribe((param) => {
+      this.filter = param['filter'];
+    });
   }
 }

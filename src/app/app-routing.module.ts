@@ -9,22 +9,13 @@ const routes: Routes = [
     component: AboutComponent,
   },
   {
+    path: 'home/:filter',
+    component: HomeComponent,
+  },
+
+  {
     path: 'home',
     component: HomeComponent,
-    children: [
-      {
-        path: 'lidos',
-        component: HomeComponent,
-      },
-      {
-        path: 'nao-lidos',
-        component: HomeComponent,
-      },
-      {
-        path: 'todos',
-        component: HomeComponent,
-      },
-    ],
   },
   {
     path: '',
