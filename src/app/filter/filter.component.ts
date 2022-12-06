@@ -10,4 +10,9 @@ export class FilterComponent {
   activeButton = 'Lidos';
 
   @Output() filterEvent = new EventEmitter<string>();
+
+  handleClick(buttonText: string) {
+    this.activeButton = buttonText;
+    this.filterEvent.emit(buttonText);
+  }
 }

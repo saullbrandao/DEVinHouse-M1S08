@@ -4,7 +4,7 @@
     class="list-group-item"
     *ngFor="let buttonText of buttonTextList"
     [ngClass]="{ active: activeButton === buttonText }"
-    (click)="filterEvent.emit(buttonText)"
+    (click)="handleClick(buttonText)"
   >
     {{ buttonText }}
   </button>
