@@ -1,9 +1,11 @@
 <div class="list-group list-group-horizontal mb-4">
   <button
-    *ngFor="let button of buttons"
+    type="button"
     class="list-group-item"
-    [ngClass]="{ active: activeButton === button }"
+    *ngFor="let buttonText of buttonTextList"
+    [ngClass]="{ active: activeButton === buttonText }"
+    (click)="filterEvent.emit(buttonText)"
   >
-    {{ button }}
+    {{ buttonText }}
   </button>
 </div>

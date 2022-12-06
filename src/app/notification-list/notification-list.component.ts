@@ -44,4 +44,8 @@ export class NotificationListComponent {
 
     this.notifications = changedNotifications;
   }
+
+  setFilter(event: string) {
+    console.log(event);
+  }
 }
